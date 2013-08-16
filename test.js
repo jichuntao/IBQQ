@@ -11,7 +11,7 @@ var IBQQ = require('./lib/IBQQ');
 
 var ibqq = IBQQ.create();
 var qqnum = '1234';
-var qqpw = 'xxxxxx';
+var qqpw = 'xxxxxxx';
 
 ibqq.on('group_message', function (value) {
     var from_uin = value.from_uin;
