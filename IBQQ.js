@@ -20,16 +20,18 @@ util.inherits(IBQQ, EventEmitter);
 /*InstallB QQ*/
 function IBQQ() {
     var thiss = this;
-    var qqnum, qqpw, clientid, modules_map, lqq, poll, channel, api, userData;
+    var qqnum, qqpwd, clientid, modules_map, lqq, poll, channel, api, userData, vcff;
     var name;
     /**
      * 开始登陆
      * @param tqqnum
-     * @param tqqpw
+     * @param tqqpwd
+     * @param tvcff
      */
-    this.start = function (tqqnum, tqqpw) {
+    this.start = function (tqqnum, tqqpwd, tvcff) {
         qqnum = tqqnum;
-        qqpw = tqqpw;
+        qqpwd = tqqpwd;
+        vcff = tvcff;
         clientid = nsutil.randomNum(10000000, 99999999);
         modules_map = {};
         InitModules();
@@ -41,7 +43,7 @@ function IBQQ() {
      * 登陆
      */
     var login = function () {
-        lqq.setLoginInfo({'qqnum': qqnum, 'qqpw': qqpw, clientid: clientid});
+        lqq.setLoginInfo({'qqnum': qqnum, 'qqpwd': qqpwd, clientid: clientid, 'vcff': vcff});
         lqq.startLogin();
     };
 
@@ -179,7 +181,7 @@ function IBQQ() {
      * 获取当前的QQ号
      * @returns {*}
      */
-    this.getQQNum=function(){
+    this.getQQNum = function () {
         return qqnum;
     };
 
@@ -187,15 +189,15 @@ function IBQQ() {
      * 设置名字
      * @param str
      */
-    this.setName=function(str){
-        name=str;
+    this.setName = function (str) {
+        name = str;
     };
 
     /**
      * 获取名字
      * @returns {*}
      */
-    this.getName=function(){
+    this.getName = function () {
         return name;
     };
 

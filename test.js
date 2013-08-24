@@ -12,7 +12,9 @@ var IBQQ = require('./lib/IBQQ');
 var ibqq = IBQQ.create();
 var qqnum = '1234';
 var qqpw = 'xxxxxxx';
-
+var vcff = function () {
+    return './' + new Date().getTime().toString() + '.jpg';
+};
 ibqq.on('group_message', function (value) {
     var from_uin = value.from_uin;
     if (value.content.length == 2 && typeof(value.content[1]) == 'string') {
@@ -38,4 +40,5 @@ ibqq.on('vcode', function (vr) {
     });
 });
 
-ibqq.start(qqnum, qqpw);
+
+ibqq.start(qqnum, qqpw, vcff);
