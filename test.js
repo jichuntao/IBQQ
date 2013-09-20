@@ -7,7 +7,7 @@
  */
 
 var fs = require('fs');
-var IBQQ = require('./lib/IBQQ');
+var IBQQ = require('./IBQQ');
 
 var ibqq = IBQQ.create();
 var qqnum = '1234';
