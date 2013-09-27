@@ -127,6 +127,8 @@ function IBQQ() {
      * @param obj
      */
     var onPollMsgFun = function (obj) {
+        thiss.emit('pollBack', obj);
+
         if (obj.retcode == 0 && obj.result) {
             var result = obj.result;
             result.sort(function (a, c) {
